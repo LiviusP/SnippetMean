@@ -9,6 +9,10 @@ class NavbarController {
   {
     'title': 'Insert',
     'state': 'insert'
+  },
+  {
+    'title': 'About',
+    'state': 'about'
   }];
 
   isCollapsed = true;

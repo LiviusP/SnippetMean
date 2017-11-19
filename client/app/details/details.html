@@ -1,27 +1,48 @@
-
-<div class='container'>
-<div class="detailPill"> 
-
-<h3>Author :</h3> 
-<h4>{{snippet.author}} </h4>
-
-</div>
-<div class="detailPill"> 
-
-<h3>Description :</h3>
- {{snippet.description}}
-
-</div>
-<div class="detailPill"> 
-
-<h3>Code :</h3>
-<code> {{snippet.code}} </code>
+<div class='container form-container'>
+	<div class="detailPill"> 
+		<h3>Title:
+			 <span ng-hide="edit.titleEdit" ng-click="edit.titleEdit = !edit.titleEdit">{{snippet.title}}</span> 
+			 <input type="text" ng-model="snippet.title" ng-show="edit.titleEdit" />
+		</h3>
+	</div>
 
 
-</div>
-<div class = "text-center">
-<div class="glyphicon glyphicon-refresh spinning" ng-hide='snippet'></div>
-</div>
-</br>
-<div  class="btn btn-danger btn-lg btn-block" ng-click="delete()">Delete</div>
+	<div class="detailPill"> 
+		<h3>Author:
+			 <span ng-hide="edit.authorEdit" ng-click="edit.authorEdit = !edit.authorEdit">{{snippet.author}}</span> 
+			 <input type="text" ng-model="snippet.author" ng-show="edit.authorEdit" /> </h3>
+	</div>
+
+	<div class="detailPill"> 
+	<div class="form-group">	
+		<h3>Description :</h3>
+		<div ng-hide="edit.detailsEdit" ng-click="edit.detailsEdit = !edit.detailsEdit">
+		 	{{snippet.description}}
+		</div>
+	  	<textarea class="form-control"  id="inputDesc"rows="5" name="inputDesc" ng-model="snippet.description"  ng-show="edit.detailsEdit" required ></textarea>
+	</div>
+	</div>
+
+
+	<div class="detailPill"> 
+		<div class="form-group">
+			<h3>Code :</h3>
+			<div ng-hide="edit.codeEdit" ng-click="edit.codeEdit = !edit.codeEdit">
+				<code> {{snippet.code}} </code>
+			</div>
+		    <textarea class="form-control" id="inputCode" rows="10" name="inputCode" ng-model="snippet.code" ng-show="edit.codeEdit" required></textarea>
+		</div>
+	</div>
+
+
+	<div class = "text-center">
+		<div class="glyphicon glyphicon-refresh spinning" ng-hide='snippet'></div>
+	</div>
+	</br>
+
+	<div ng-if="snippet.updated">
+		This snippet was updated!
+	</div>
+	<div  class="btn btn-primary btn-lg btn-block" ng-click="update()" >Update</div>
+	<div  class="btn btn-danger btn-lg btn-block" ng-click="delete()">Delete</div>
 </div>

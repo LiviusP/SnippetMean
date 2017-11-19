@@ -1,24 +1,28 @@
 'use strict';
 
 angular.module('workspaceApp')
-  .controller('DetailsCtrl', function ($scope,$http,$stateParams,$state) {
+  .controller('DetailsCtrl', function ($scope,$stateParams,$state,SnippetService) {
     $scope.message = 'Hello';
     $scope.id = $stateParams.id;
     
     $scope.snippet = {};
-      $http.get('/api/things/' + $scope.id ).then(response => {
+     SnippetService.getSnippet($scope.id).then(response => {
       $scope.snippet = response.data;
-      console.log($scope.snippet);
     });
   
-    $scope.delete = function(){
-      
-      $http.delete('/api/things/' + $scope.id).then(response => {
-        
+    $scope.delete = function() {
+      SnippetService.deleteSnippet($scope.id).then(response => {        
         $state.go('main');
-        
       });
-      
+    };
+
+    $scope.update = function() {
+      console.log("test");
+      $scope.snippet.updated = true;
+      if ($scope.edit && Object.keys($scope.edit).length > 0) {
+          SnippetService.updateSnippet($scope.id, $scope.snippet).then(response => {
+          });
+      }
     };
     
-  });
+});

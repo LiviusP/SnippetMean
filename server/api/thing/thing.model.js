@@ -7,7 +7,8 @@ var ThingSchema = new mongoose.Schema({
   description: String,
   code : String ,
   title : String , 
-  active: Boolean
+  active: Boolean,
+  updated: Boolean
 });
 
 export default mongoose.model('Thing', ThingSchema);

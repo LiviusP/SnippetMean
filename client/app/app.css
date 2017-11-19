@@ -38,3 +38,33 @@
   padding: 0.2em 0;
 }
 
+
+.form-container {
+  width: 60%;
+}
+
+.main-medium-icon {
+  max-width: 10%
+}
+
+#search-input {
+  padding-top: 10px;
+}
+
+#banner {
+  background: #428bca;
+}
+
+* {
+margin: 0;
+}
+html, body {
+height: 100%;
+}
+.main-container {
+min-height: 250px;
+
+}
+.footer, .push {
+height: 4em;
+}

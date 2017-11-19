@@ -87,6 +87,9 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
+
+  console.log(req.body);
+  
   Thing.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
